@@ -288,3 +288,15 @@
         29        // Демонстрація використання фасаду
         30        const facade = new Facade();
         31        console.log(facade.operation());
+
+
+
+        1   OK  GITHUB_REPOSITORIES/apz-pzpi-22-7-kravtsov-yaromyr/README.md
+1.1 OK  # apz-pzpi-22-7-kravtsov-yaromyr
+1.2 OK  ПЗПІ-22-7
+1.3 OK  Кравцов Яромир 
+1.4 OK  Патерн проєктування Facade 
+1.5 OK  Архітектура Amazon
+1.6 ERROR  Програмна система контролю доступу до зон спільного користування в житловому комплексі  (Тема проєкту на ЛР: "Програмна система для ...")
+1.7 OK  --- 
+2   ERROR Відсутній файл:  GITHUB_REPOSITORIES/apz-pzpi-22-7-kravtsov-yaromyr/Pract1/pzpi-22-7-kravtsov-yaromyr-design-patt
