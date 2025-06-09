@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
     padding: 14,
     marginBottom: 12,
     borderRadius: 10,
-    /* elevation для Android / shadow* для iOS */
     elevation: 3,
     shadowColor: '#000',
     shadowOpacity: 0.1,
