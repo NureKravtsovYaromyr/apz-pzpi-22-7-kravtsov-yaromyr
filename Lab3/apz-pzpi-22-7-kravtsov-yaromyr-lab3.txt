@@ -1,0 +1,416 @@
+Міністерство освіти і науки України 
+Харківський національний університет радіоелектроніки 
+Кафедра програмної інженерії 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Звіт з лабораторної роботи № 3
+ з дисципліни «Архітектура програмного забезпечення»
+
+
+
+
+
+
+
+
+
+
+Перевірив                                                            Виконав 
+ст. викладач ПІ                                                          ст. групи ПЗПІ-22-7 
+Сокорчук Ігор Петрович                                     Кравцов Я.П.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Харків 2025
+
+
+
+
+1 Аналіз завдання 
+
+
+
+
+№
+	Дата
+	Версія звіту
+	Опис змін та виправлень
+	1
+	06.05.2025
+	1.0
+	Створення роботи
+	
+
+
+
+2 ЗАВДАННЯ
+
+
+Необхідно розробити клієнтську / front-end частину програмної системи.
+Проаналізуйте завдання.
+Виконайте контрольні завдання.
+Відкрийте створений на попередній лабораторній роботі репозиторій GitHub.
+Створіть у репозиторії директорію Task4 та текстовий файл з описом інженерних рішень у цій частині проєкту, як вказано у додатку З
+Зафіксуйте кожну внесену зміну командою git commit з відповідним коментарем та фіксуйте цією командою усі наступні зміни у проєкті.
+Створіть у директорії Task4 піддиректорію для програмного коду, як вказано у додатку З
+Створіть програмний код, завантажте його у створену піддиректорію, зафіксуйте внесені у репозиторій зміни
+Виконайте функціональне тестування створеного програмного коду та створіть відеозапис цього тестування тривалістю 7..10 хвилин з усними поясненнями процесу тестування
+Завантажте створений відеозапис тестування YouTube канал для вашого облікового запису в домені @nure.ua
+Створіть для завантаженого запису його хронологічний опис.
+Оформіть звіт у форматі pdf та завантажте його на навчальну платформу https://dl.nure.ua/
+У коментарях до завантаженого звіту вкажіть посилання на відеозапис тестування у вашому каналі YouTube.
+
+
+
+
+
+
+3 ОПИС ВИКОНАНОЇ РОБОТИ
+
+
+Програмне забезпечення клієнтською/front-end частини розроблено на мові програмування Javascript та з використанням фреймворку ReactJS, бібліотек React-MaterialUI для дизайну в стилі Material, Zustand для збереження та управління станом вебдодатку, react-router-dom для динамічного управління сторінками на основі url. Програмне забезпечення отримує користувацькі пристрої, їх вимірювання, прогнози погоди, та різні дані системи (користувачі, міста, тощо) для адміністраторів з серверу. Автентифікація реалізована за допомогою JWT-токенів, які перевіряються а сервері при кожному запиті.
+На рисунку Б.1 у додатку Б наведена UML діаграма прецедентів.
+На рисунку Б.2 у додатку Б наведена діаграма компонентів.
+На рисунку Б.3 у додатку Б наведена діаграма взаємодії.
+На рисунку Б.4 у додатку Б наведена діаграма станів.
+
+
+
+
+
+
+
+
+________________
+
+
+
+
+
+
+ДОДАТОК A
+
+
+Відеозапис доповіді на YouTube: https://www.youtube.com/watch?v=ibRgHUfzBMw
+Хронологічний опис відеозапису:
+00:00 - Вступ
+00:38 - Математична обробка (статистика)
+01:28 - Тестування CRUD будівель
+02:10 - Тестування CRUD зон
+02:45 - Тестування CRUD дверей
+03:35 - Тестування CRUD користувачів
+
+
+
+
+
+
+
+
+________________
+Додаток Б
+Графічні матеріали
+
+
+  
+
+Рисунок Б.1 - UML діаграма прецедентів
+
+
+  
+
+Рисунок Б.2 - Діаграма компонентів
+
+
+  
+
+Рисунок Б.3 - Діаграма взаємодії
+
+
+  
+
+Рисунок Б.4 - Діаграма станів
+
+
+________________
+
+
+
+
+Додаток В
+Програмний код
+
+
+В.1 Математична обробка прикладних даних
+GitHub репозиторій: https://github.com/NureKravtsovYaromyr/apz-pzpi-22-7-kravtsov-yaromyr/blob/main/Lab3/pzpi-22-7-kravtsov-yaromyr-lab3-code/src/pages/AdminPage/AdminPage.tsx
+
+
+
+
+1. import styles from './AdminPage.module.css'
+2. import React, { useEffect, useState } from 'react'
+3. import {
+4.     Chart as ChartJS,
+5.     CategoryScale,
+6.     LinearScale,
+7.     BarElement,
+8.     PointElement,
+9.     LineElement,
+10.     Title,
+11.     Tooltip,
+12.     Legend,
+13. } from 'chart.js'
+14. import { Bar, Line } from 'react-chartjs-2'
+15. import $api from '../../app/api/http'
+16. import { IZone } from '../../models/IZone'
+17. 18. ChartJS.register(
+19.     CategoryScale,
+20.     LinearScale,
+21.     BarElement,
+22.     PointElement,
+23.     LineElement,
+24.     Title,
+25.     Tooltip,
+26.     Legend
+27. )
+28. 29. const AdminPage: React.FC = () => {
+30.     const [hourlyData, setHourlyData] = useState<number[]>(Array(24).fill(0))
+31.     const [topZones, setTopZones] = useState<{ name: string; count: number }[]>([])
+32.     const [weeklyData, setWeeklyData] = useState<{ date: string; count: number }[]>([])
+33. 34.     useEffect(() => {
+35.         // 1) Відкриття дверей за годинами (сьогодні)
+36.         const fetchHourly = async () => {
+37.             const today = new Date().toISOString().slice(0, 10)
+38.             const res = await $api.get<any[]>('/door-logs', { params: { date_from: today, date_to: today } })
+39.             const counts = Array(24).fill(0)
+40.             res.data.forEach(log => {
+41.                 const hour = new Date(log.timestamp).getHours()
+42.                 counts[hour]++
+43.             })
+44.             setHourlyData(counts)
+45.         }
+46. 47.         const fetchTopZones = async () => {
+48.             const { data: zones } = await $api.get<IZone[]>('/zones')
+49.             const usage = await Promise.all(
+50.                 zones.map(async z => {
+51.                     const r = await $api.get<number>(`/zones/${z.id}/usage`)
+52.                     return { name: z.name, count: r.data }
+53.                 })
+54.             )
+55.             usage.sort((a, b) => b.count - a.count)
+56.             setTopZones(usage.slice(0, 5))
+57.         }
+58. 59.         const fetchWeekly = async () => {
+60.             const to = new Date()
+61.             const from = new Date()
+62.             from.setDate(to.getDate() - 6)
+63.             const fromStr = from.toISOString().slice(0, 10)
+64.             const toStr = to.toISOString().slice(0, 10)
+65.             const res = await $api.get<any[]>('/door-logs', { params: { date_from: fromStr, date_to: toStr } })
+66.             const map: Record<string, number> = {}
+67.             for (let d = new Date(from); d <= to; d.setDate(d.getDate() + 1)) {
+68.                 map[d.toISOString().slice(0, 10)] = 0
+69.             }
+70.             res.data.forEach(log => {
+71.                 const day = log.timestamp.slice(0, 10)
+72.                 if (map[day] !== undefined) map[day]++
+73.             })
+74.             setWeeklyData(Object.entries(map).map(([date, count]) => ({ date, count })))
+75.         }
+76. 77.         fetchHourly()
+78.         fetchTopZones()
+79.         fetchWeekly()
+80.     }, [])
+81. 82.     return (
+83.         <div style={{ padding: 20 }} className={styles.main}>
+84.             <div>
+85.                 <h2>Відкриття дверей за годинами (сьогодні)</h2>
+86.                 <Bar
+87.                     data={{
+88.                         labels: hourlyData.map((_, i) => `${i}:00`),
+89.                         datasets: [{ label: 'Відкриттів', data: hourlyData }],
+90.                     }}
+91.                 />
+92.             </div>
+93.             <div>
+94.                 <h2>Топ-5 найбільш завантажених зон</h2>
+95.                 <Bar
+96.                     data={{
+97.                         labels: topZones.map(z => z.name),
+98.                         datasets: [{ label: 'Кількість відкриттів', data: topZones.map(z => z.count) }],
+99.                     }}
+100.                     options={{ indexAxis: 'y' }}
+101.                 />
+102.             </div>
+103.             <div>
+104.                 <h2>Глобальна активність за 7 днів</h2>
+105.                 <Line
+106.                     data={{
+107.                         labels: weeklyData.map(w => w.date),
+108.                         datasets: [
+109.                             {
+110.                                 label: 'Відкриттів',
+111.                                 data: weeklyData.map(w => w.count),
+112.                                 fill: false,
+113.                             },
+114.                         ],
+115.                     }}
+116.                 />
+117.             </div>
+118.         </div>
+119.     )
+120. }
+121. 122. export default AdminPage
+
+
+
+
+В.2 Адміністрування бізнес-логіки системи
+
+
+1. import React, { FC, useEffect, useState } from 'react';
+2. import { useNavigate, useLocation, useParams } from 'react-router-dom';
+3. import PageLayout from '../../layouts/PageLayout/PageLayout';
+4. import DeleteItemMenu from '../../components/DeleteItemMenu/DeleteItemMenu';
+5. import SuccessMenu from '../../components/SuccessMenu/SuccessMenu';
+6. import { RouteNames } from '../../app/router';
+7. import $api from '../../app/api/http';
+8. import Container from '../../layouts/Container/Container';
+9. import MyInput from '../../UI/MyInput/MyInput';
+10. import MyButton from '../../UI/MyButton/MyButton';
+11. import { useAuthStore } from '../../app/store/auth';
+12. 13. 14. 15. interface IBuilding {
+16.     id: number;
+17.     name: string;
+18.     address: string;
+19. }
+20. 21. const BuildingModule: FC = () => {
+22.     const navigate = useNavigate();
+23.     const { id: idParam } = useParams<{ id: string }>();
+24.     const id = idParam ? Number(idParam) : null;
+25.     const { role } = useAuthStore();
+26.     const [action, setAction] = useState<'create' | 'edit'>('create');
+27.     const [building, setBuilding] = useState<Partial<IBuilding>>({
+28.         name: '',
+29.         address: '',
+30.     });
+31.     const [isDeleteMenuShow, setIsDeleteMenuShow] = useState(false);
+32.     const [isShowSuccessSave, setIsShowSuccessSave] = useState(false);
+33. 34.     // Завантажуємо дані при редагуванні
+35.     useEffect(() => {
+36.         if (action === 'edit' && id) {
+37.             (async () => {
+38.                 try {
+39.                     const { data } = await $api.get<IBuilding>(`/buildings/${id}`);
+40.                     setBuilding({ name: data.name, address: data.address });
+41.                 } catch (err) {
+42.                     console.error('Помилка завантаження будівлі:', err);
+43.                 }
+44.             })();
+45.         }
+46.     }, [action, id]);
+47.     
+48.     useEffect(() => setAction(idParam ? 'edit' : 'create'), [idParam])
+49. 50.     const pageAction = async () => {
+51.         try {
+52.             if (action === 'edit' && id) {
+53.                 await $api.put(`/buildings/${id}`, {
+54.                     name: building.name,
+55.                     address: building.address,
+56.                 });
+57.                 setIsShowSuccessSave(true);
+58.             } else {
+59.                 const { data } = await $api.post<IBuilding>('/buildings', {
+60.                     name: building.name,
+61.                     address: building.address,
+62.                 });
+63.                 navigate(`${RouteNames.BUILDING}/${data.id}`);
+64.             }
+65.         } catch (err) {
+66.             console.error('Помилка збереження будівлі:', err);
+67.         }
+68.     };
+69. 70.     const handleRemove = async () => {
+71.         if (!id) return;
+72.         try {
+73.             await $api.delete(`/buildings/${id}`);
+74.             navigate(RouteNames.BUILDINGS);
+75.         } catch (err) {
+76.             console.error('Помилка видалення будівлі:', err);
+77.         }
+78.     };
+79. 80.     return (
+81.         <PageLayout
+82.             pageTitle={action === 'edit' ? `Редагувати будівлю` : 'Створити нову будівлю'}
+83.             actionTitle={action === 'edit' ? 'Зберегти будівлю' : 'Створити будівлю'}
+84.             action={pageAction}
+85.             removeAction={action === 'edit' ? () => setIsDeleteMenuShow(true) : undefined}
+86.             actionAccess={role === 'developer'}
+87.         >
+88.             <>
+89.                 <Container>
+90.                     <MyInput
+91.                         placeholder="Назва будівлі"
+92.                         value={building.name || ''}
+93.                         setValue={(val) => setBuilding(prev => ({ ...prev, name: val }))}
+94.                     />
+95.                     <MyInput
+96.                         placeholder="Адреса"
+97.                         value={building.address || ''}
+98.                         setValue={(val) => setBuilding(prev => ({ ...prev, address: val }))}
+99.                     />
+100.                 </Container>
+101. 102.                 <DeleteItemMenu
+103.                     isShow={isDeleteMenuShow}
+104.                     setIsShow={setIsDeleteMenuShow}
+105.                     title={`Видалити будівлю "${building.name}"?`}
+106.                     action={handleRemove}
+107.                 />
+108. 109.                 <SuccessMenu
+110.                     title="Будівля успішно збережена."
+111.                     action={() => setIsShowSuccessSave(false)}
+112.                     setIsShow={setIsShowSuccessSave}
+113.                     isShow={isShowSuccessSave}
+114.                 />
+115.             </>
+116.         </PageLayout>
+117.     );
+118. };
+119. 120. export default BuildingModule;
