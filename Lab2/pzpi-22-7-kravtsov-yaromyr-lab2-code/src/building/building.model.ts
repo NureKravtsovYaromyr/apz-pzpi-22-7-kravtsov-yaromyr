@@ -1,6 +1,7 @@
 import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from 'sequelize-typescript';
 import { User } from 'src/user/user.model';
 import { Zone } from 'src/zone/zone.model';
+import { BuildingUser } from './building-user.model';
 
 
 @Table({ tableName: 'buildings', createdAt: false, updatedAt: false })
@@ -19,7 +20,10 @@ export class Building extends Model<Building> {
   developer_id: number;
   @BelongsTo(() => User)
   developer: User;
+  
+ @HasMany(() => BuildingUser)
+  buildingUsers: BuildingUser[]
 
   @HasMany(() => Zone)
-  zones: Zone[];
+  zones: Zone[]
 }

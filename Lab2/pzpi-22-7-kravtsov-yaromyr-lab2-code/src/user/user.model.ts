@@ -6,7 +6,9 @@ import {
   ForeignKey,
   BelongsTo,
   HasMany,
+  BelongsToMany,
 } from 'sequelize-typescript';
+import { BuildingUser } from 'src/building/building-user.model';
 import { Building } from 'src/building/building.model';
 import { DoorLog } from 'src/door-log/door-log.model';
 
@@ -45,4 +47,8 @@ export class User extends Model<User, UserCreationAttrs> {
 
   @HasMany(() => DoorLog)
   doorLogs: DoorLog[];
+
+
+  @BelongsToMany(() => User, () => BuildingUser)
+  users: User[]
 }

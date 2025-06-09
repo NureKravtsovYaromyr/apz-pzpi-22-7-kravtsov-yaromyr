@@ -7,13 +7,15 @@ import { DoorLog } from '../door-log/door-log.model';
 import { User } from '../user/user.model';
 import { CreateZoneDto } from './dto/create-zone.dto';
 import { UpdateZoneDto } from './dto/update-zone.dto';
-import { Op } from 'sequelize';
+import { Model, Op } from 'sequelize';
+import { BuildingUser } from 'src/building/building-user.model';
 
 @Injectable()
 export class ZoneService {
   constructor(
     @InjectModel(Zone) private zoneModel: typeof Zone,
     @InjectModel(Building) private buildingModel: typeof Building,
+    @InjectModel(BuildingUser) private buildingUserModel: typeof BuildingUser,
     @InjectModel(DoorLog) private logModel: typeof DoorLog,
     @InjectModel(Door) private doorModel: typeof Door,
   ) { }
@@ -68,19 +70,19 @@ export class ZoneService {
     });
   }
 
-  async getUsersWhoAccessed(zoneId: number) {
-    const logs = await this.getActivity(zoneId);
-    const userMap = new Map<number, User>();
+// zone.service.ts
+async getZonesByUser(userId: number) {
+  const buildings = await this.buildingUserModel.findAll({
+    where: {user_id:userId}
+  })
+  console.log(buildings)
+  const buildingIds = buildings.map(b => b.building_id)
+  console.log(buildingIds)
+  return await this.zoneModel.findAll({
+    where: { building_id: buildingIds }
+  })
+}
 
-    logs.forEach(log => {
-      const user = log.user;
-      if (user && !userMap.has(user.id)) {
-        userMap.set(user.id, user);
-      }
-    });
-
-    return Array.from(userMap.values());
-  }
 
   async getLeastUsedZones(developerId: number) {
   /*   const buildings = await this.buildingModel.findAll({ where: { developer_id: developerId } });

@@ -7,10 +7,11 @@ import { DoorLog } from 'src/door-log/door-log.model';
 import { Building } from 'src/building/building.model';
 import { Door } from 'src/door/door.model';
 import { LoggerModule } from 'src/logger/logger.module';
+import { BuildingUser } from 'src/building/building-user.model';
 
 @Module({
   imports: [
-    SequelizeModule.forFeature([Zone, DoorLog, Building, Door]),
+    SequelizeModule.forFeature([Zone, DoorLog, Building, Door, BuildingUser]),
     LoggerModule,
   ],
   controllers: [ZoneController],

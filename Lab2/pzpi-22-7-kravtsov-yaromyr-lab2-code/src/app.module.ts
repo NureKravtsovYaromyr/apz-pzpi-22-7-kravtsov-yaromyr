@@ -24,6 +24,7 @@ import { Zone } from './zone/zone.model';
 import { Door } from './door/door.model';
 import { DoorLog } from './door-log/door-log.model';
 import { Token } from './token/token.model';
+import { BuildingUser } from './building/building-user.model';
 
 
 @Module({
@@ -45,7 +46,7 @@ import { Token } from './token/token.model';
       username: process.env.MYSQL_USER,
       password: process.env.MYSQL_PASSWORD,
       database: process.env.MYSQL_DB,
-      models: [User, Building, Zone, Door, DoorLog, Token],
+      models: [User, Building, Zone, Door, DoorLog, Token, BuildingUser],
       autoLoadModels: process.env.AUTO_LOAD_MODELS == 'true'
     }),
     TokenModule,

@@ -17,15 +17,24 @@ async function bootstrap() {
   app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
   app.useGlobalPipes(new ValidationPipe());
 
-  // CORS
-  app.enableCors({
-    origin: [
-      'http://192.168.0.119:3000',
-      'http://localhost:3000',
-      'http://87.106.232.167',
-    ],
+app.enableCors({
     credentials: true,
+    origin: (origin, callback) => {
+      // 🔹 якщо origin = undefined — це Postman / curl ⇒ дозволяємо
+      // 🔹 у браузера origin буде 'http://localhost:3000' тощо
+      callback(null, true);          // повертаємо той самий origin
+    },
+    allowedHeaders: [
+      'Content-Type',
+      'Authorization',
+      'X-Requested-With',
+      'Accept',
+    ],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   });
+
+
+
 
   // Swagger Config
   const swaggerConfig = new DocumentBuilder()

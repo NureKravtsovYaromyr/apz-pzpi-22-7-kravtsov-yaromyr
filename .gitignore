@@ -17,3 +17,15 @@
 /Lab3/pzpi-22-7-kravtsov-yaromyr-lab3-code/build/
 /Lab3/pzpi-22-7-kravtsov-yaromyr-lab3-code/dist/
 /Lab3/pzpi-22-7-kravtsov-yaromyr-lab3-code/.development.env 
+
+
+
+
+# dependencies
+/Lab4/pzpi-22-7-kravtsov-yaromyr-lab4-code/node_modules/
+
+# Expo
+.expo/
+/Lab4/pzpi-22-7-kravtsov-yaromyr-lab4-code/node_modules/dist/
+/Lab4/pzpi-22-7-kravtsov-yaromyr-lab4-code/node_modules/web-build/
+/Lab4/pzpi-22-7-kravtsov-yaromyr-lab4-code/node_modules/expo-env.d.ts

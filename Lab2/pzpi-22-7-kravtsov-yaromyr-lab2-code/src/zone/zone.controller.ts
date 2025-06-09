@@ -103,7 +103,7 @@ export class ZoneController {
   @ApiOperation({ summary: 'Get users who accessed a zone' })
   @ApiParam({ name: 'id' })
   getUsers(@Param('id') id: number) {
-    return this.zoneService.getUsersWhoAccessed(id);
+    return this.zoneService.getZonesByUser(id);
   }
 
   @Get('/inactive')
