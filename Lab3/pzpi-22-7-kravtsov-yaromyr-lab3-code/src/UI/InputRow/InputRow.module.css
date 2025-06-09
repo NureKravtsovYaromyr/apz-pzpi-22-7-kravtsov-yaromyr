@@ -1,0 +1,17 @@
+
+.row {
+    display: flex;
+    flex-direction: column;
+    row-gap: 13px;
+}
+
+.title {
+    font-family: "PT Sans", sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    color: #333333;
+    margin-bottom: auto;
+}
+

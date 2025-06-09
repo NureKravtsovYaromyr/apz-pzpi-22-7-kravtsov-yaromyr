@@ -1,0 +1,101 @@
+.customSelectContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 310px;
+    height: 50px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.customSelectTrigger {
+    width: 100%;
+    min-height: 50px;
+    color: rgba(0, 0, 0, 0.6);
+    background: #F6F6F6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8.5px 14px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.arrow {
+    width: 18px;
+    height: 18px;
+    opacity: 0.6;
+    transition: transform 0.2s ease;
+}
+
+.arrow.open {
+    transform: rotate(180deg);
+}
+
+.customSelectDropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.6);
+    background: #F6F6F6;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.customSelectOption {
+    padding: 17px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.customSelectOption:hover {
+    background-color: #f0f0f0;
+}
+
+.selectedPlaceholder {
+    color: rgba(0, 0, 0, 1);
+}
+
+.disabled {
+    background: rgba(239, 239, 239, 1);
+    border-radius: 8px;
+}
+
+.selectedOption {
+    background-color: #E53012;
+    color: #fff;
+    font-weight: bold;
+}
+
+.errorText {
+    position: absolute;
+    bottom: -18px; 
+    left: 0;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    color: #FB2424;
+    line-height: 1.4;
+}
+
+@media (max-width:1550px) {
+    .customSelectContainer {
+        height: 35px;
+    }
+}
+
+@media (max-width: 580px) {
+    .customSelectContainer {
+        font-size: 14px;
+    }
+}
+.errorBorder{
+    border-color: red !important;
+}

@@ -1,0 +1,25 @@
+.popUp{
+    width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttomRow{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.actionButton, .backButton{
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+}
+
+.backButton{
+    color: #656565;
+    background: #E7E7E7;
+}

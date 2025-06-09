@@ -44,7 +44,7 @@ export class UserController {
     return this.userService.findOne(req['user'].userId);
   }
 
-  @Post('')
+  @Post('user')
   @Roles(['developer'])
   @UseGuards(RoleGuard)
   @ApiBearerAuth()
@@ -52,6 +52,13 @@ export class UserController {
   create(@Body() dto: CreateUserDto) {
     return this.userService.create(dto);
   }
+  
+  @Post('/developer')
+  @ApiOperation({ summary: 'Create new user (by developer)' })
+  createNewDeveloper(@Body() dto: CreateUserDto) {
+    return this.userService.create(dto);
+  }
+
 
 
   @Put(':id')

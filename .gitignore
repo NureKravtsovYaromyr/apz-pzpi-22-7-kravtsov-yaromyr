@@ -1,68 +1,9 @@
 # === Dependencies ===
 /client/node_modules/
-/server/node_modules/
-.pnp/
-.pnp.js
-
-# === Testing ===
-/client/coverage/
-/server/coverage/
-/server/.nyc_output/
-
-# === Production ===
+/Lab2/pzpi-22-7-kravtsov-yaromyr-lab2-code/node_modules/
+/Lab2/pzpi-22-7-kravtsov-yaromyr-lab2-code/coverage/
+/Lab2/pzpi-22-7-kravtsov-yaromyr-lab2-code/.nyc_output/
 /client/build/
-/server/build/
-/server/dist/
-
-# === Logs ===
-/server/logs/
-*.log
-npm-debug.log*
-pnpm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-
-# === Environment Files ===
-/client/.env
-/client/.env.local
-/client/.env.development.local
-/client/.env.test.local
-/client/.env.production.local
-/server/.env
-/server/.env.local
-/server/.env.development.local
-/server/.env.test.local
-/server/.env.production.local
-/server/.production.env
-/server/static
-# === IDEs & Editors ===
-.idea/
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# === OS ===
-.DS_Store
-
-# === Misc ===
-/server/config/
-.temp/
-.tmp/
-pids/
-*.pid
-*.seed
-*.pid.lock
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
-
-# === WhatsApp Web JS Caches ===
-.wwebjs_auth/
-.wwebjs_cache/
+/Lab2/pzpi-22-7-kravtsov-yaromyr-lab2-code/build/
+/Lab2/pzpi-22-7-kravtsov-yaromyr-lab2-code/dist/
+/Lab2/pzpi-22-7-kravtsov-yaromyr-lab2-code/.development.env

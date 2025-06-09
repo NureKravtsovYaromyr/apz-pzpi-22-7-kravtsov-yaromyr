@@ -1,0 +1,63 @@
+
+.navButton {
+
+    width: 55px;
+    height: 55px;
+    background: inherit;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    cursor: pointer;
+}
+
+.navIcon {
+
+    width: 31px;
+    height: 31px;
+}
+
+.navButton.active {
+    background: #262626;
+    border-radius: 10px;
+}
+
+.dropDown {
+    position: absolute;
+    top: 0; /* Чтобы меню было ниже кнопки */
+    left: 100%; /* Чтобы меню отображалось справа от кнопки */
+
+    display: none;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.show {
+    display: block;
+}
+
+.dropDownItem {
+    display: flex;
+    padding: 10px 15px;
+    cursor: pointer;
+    white-space: nowrap;
+
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 23px;
+
+color: #000000;
+
+
+}
+
+.dropDownItem:hover {
+    background-color: #f0f0f0;
+}

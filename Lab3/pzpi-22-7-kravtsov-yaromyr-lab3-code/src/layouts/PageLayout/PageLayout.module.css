@@ -1,0 +1,44 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 60px;
+    padding-top: 0;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.topButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 260px;
+    height: 56px;
+    max-height: 540px;
+
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+/*  */
+.goBack {
+    background: #E7E7E7;
+    color: #8C8C8C;
+}
+
+.buttonRow {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}

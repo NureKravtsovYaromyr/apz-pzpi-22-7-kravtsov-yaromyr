@@ -1,0 +1,4 @@
+.searchBar { display: flex; gap: 16px; margin-bottom: 24px; }
+.list { display: grid; gap: 12px; }
+.listItem { padding: 16px; border: 1px solid #ddd; border-radius: 4px; }
+.buttonRow { margin-top: 8px; }

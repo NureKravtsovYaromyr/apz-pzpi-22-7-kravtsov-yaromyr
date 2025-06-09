@@ -1,0 +1,10 @@
+.editor{
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+
+}
+
+.editor p{
+    font-size: 18px;
+}

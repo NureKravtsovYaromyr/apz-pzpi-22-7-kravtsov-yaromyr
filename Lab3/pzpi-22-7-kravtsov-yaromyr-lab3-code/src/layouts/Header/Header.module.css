@@ -1,0 +1,81 @@
+.header {
+    height: 85px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 35px;
+
+background: #FFFFFF;
+box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.16);
+
+}
+
+.logo {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 44px;
+}
+
+.navBar {
+    display: flex;
+    flex-direction: row;
+    column-gap: 100px;
+    
+}
+
+.navBar a {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    text-decoration-line: underline;
+    color: #0E2040;
+}
+
+.account {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+.account img {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.name {
+
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: right;
+
+    color: #0D062D;
+
+
+}
+
+.role {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: right;
+    color: #787486;
+}

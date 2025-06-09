@@ -1,0 +1,32 @@
+
+
+.page{
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    background: #F0F6FF;
+}
+
+.pageRow{
+    display: flex;
+    flex-direction: row;
+
+}
+
+:root {
+    --nav-width: 370px;
+}
+
+.navBar {
+    width: var(--nav-width);
+    height: 100vh;
+}
+
+.main {
+    width: auto;
+}
+

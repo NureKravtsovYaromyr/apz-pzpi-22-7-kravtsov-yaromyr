@@ -1,0 +1,35 @@
+.iteam{
+    padding: 0 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background: #F6F6F6;
+    position: relative;
+}
+
+.settings {
+    position: absolute;
+    right: 20px;
+    
+    width: 130px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    
+    opacity: 0;
+}
+.iteam:hover {
+    background: #716D6B;
+ 
+}
+.iteam:hover div , .iteam:hover p{
+    color: #fff;
+}
+
+.iteam:hover .settings{
+    display: flex;
+    opacity: 1;
+}
