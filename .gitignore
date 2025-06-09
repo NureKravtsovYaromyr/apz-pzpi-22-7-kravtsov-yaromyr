@@ -6,4 +6,14 @@
 /client/build/
 /Lab2/pzpi-22-7-kravtsov-yaromyr-lab2-code/build/
 /Lab2/pzpi-22-7-kravtsov-yaromyr-lab2-code/dist/
-/Lab2/pzpi-22-7-kravtsov-yaromyr-lab2-code/.development.env
+/Lab2/pzpi-22-7-kravtsov-yaromyr-lab2-code/.development.env 
+
+
+
+
+/Lab3/pzpi-22-7-kravtsov-yaromyr-lab3-code/node_modules/
+/Lab3/pzpi-22-7-kravtsov-yaromyr-lab3-code/coverage/
+/Lab3/pzpi-22-7-kravtsov-yaromyr-lab3-code/.nyc_output/
+/Lab3/pzpi-22-7-kravtsov-yaromyr-lab3-code/build/
+/Lab3/pzpi-22-7-kravtsov-yaromyr-lab3-code/dist/
+/Lab3/pzpi-22-7-kravtsov-yaromyr-lab3-code/.development.env 
